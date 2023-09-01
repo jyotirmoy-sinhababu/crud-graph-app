@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { GrAdd } from 'react-icons/gr';
 import Modal from '../../modal/Modal';
+import CreateContactForm from '../formComp/CreateContactForm';
 
 const ContactComp = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -9,7 +10,7 @@ const ContactComp = () => {
   const handleModal = () => {
     isOpen ? setIsOpen(!isOpen) : setIsOpen(isOpen);
   };
-
+  console.log(isOpen);
   return (
     <div>
       <div>
@@ -21,7 +22,9 @@ const ContactComp = () => {
         </button>
       </div>
       <div>
-        <Modal isOpen={isOpen}></Modal>
+        <Modal isOpen={isOpen}>
+          <CreateContactForm />
+        </Modal>
       </div>
     </div>
   );
