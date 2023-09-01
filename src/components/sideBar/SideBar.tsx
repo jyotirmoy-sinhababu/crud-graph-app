@@ -1,5 +1,12 @@
+import { NavLink } from 'react-router-dom';
+
 const SideBar = () => {
-  return <div>SideBar</div>;
+  return (
+    <div>
+      <NavLink to={{}}>Contacts</NavLink>
+      <NavLink to={{}}>Charts and Maps</NavLink>
+    </div>
+  );
 };
 
 export default SideBar;
