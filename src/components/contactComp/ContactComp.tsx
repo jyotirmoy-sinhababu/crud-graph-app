@@ -8,9 +8,19 @@ const ContactComp = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleModal = () => {
-    isOpen ? setIsOpen(!isOpen) : setIsOpen(isOpen);
+    if (!isOpen) {
+      setIsOpen(true);
+    }
   };
+
   console.log(isOpen);
+
+  const closeModal = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -23,7 +33,7 @@ const ContactComp = () => {
       </div>
       <div>
         <Modal isOpen={isOpen}>
-          <CreateContactForm />
+          <CreateContactForm closeModal={closeModal} />
         </Modal>
       </div>
     </div>
