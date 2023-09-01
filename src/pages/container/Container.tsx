@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 const Container = () => {
-  return <div>Container</div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 };
 
 export default Container;
