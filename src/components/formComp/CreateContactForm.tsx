@@ -20,14 +20,14 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
       id: idGenerator(),
     };
     console.log(contacts);
-    dispatch(addContact(newContact));
+    dispatch(addContact([...contacts, newContact]));
     setCreateContactData({});
   };
 
   const idGenerator = () => {
     return Math.floor(Math.random() * 100000) + 1;
   };
-  // console.log(contacts);
+  console.log(createContactData);
 
   return (
     <div>
@@ -71,9 +71,11 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
               [e.target.name]: e.target.value,
             });
           }}
-          name='isActive'
-          type='checkbox'
+          name='status'
+          type='radio'
+          value='on'
         />
+        <label>Active</label>
         <input
           onChange={(e) => {
             setCreateContactData({
@@ -81,9 +83,11 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
               [e.target.name]: e.target.value,
             });
           }}
-          name='isInActive'
-          type='checkbox'
+          name='status'
+          type='radio'
+          value='off'
         />
+        <label>Not active</label>
         <div>
           <button type='submit'>Submit</button>
         </div>
