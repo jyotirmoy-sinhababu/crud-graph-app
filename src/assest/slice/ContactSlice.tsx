@@ -1,19 +1,13 @@
 // src/features/todos/todosSlice.js
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface contact {
-  id: number;
-  firstName: string;
-  secondName: string;
-}
+import { createSlice } from '@reduxjs/toolkit';
 
 const ContactSlice = createSlice({
   name: 'contacts',
-  initialState: [],
+  initialState: { contacts: {} },
   reducers: {
-    addContact: (state, action: PayloadAction<contact>) => {
-      state.contacts.push(action.payload);
+    addContact: (state, action) => {
+      state.contacts = action.payload;
     },
   },
 });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../assest/slice/ContactSlice';
 
 interface ModalProps {
@@ -9,12 +9,16 @@ interface ModalProps {
 }
 
 const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
-  const [createContactData, setCreateContactData] = useState<object>();
+  const [createContactData, setCreateContactData] = useState<{
+    [key: string]: any;
+  }>({});
 
   const dispatch = useDispatch();
+  const contacts = useSelector((state: any) => state?.contact);
+  console.log(contacts);
 
   const handleDispatch = () => {
-    dispatch(addContact({ id: Date.now(), createContactData }));
+    dispatch(addContact({ id: Date.now(), ...createContactData }));
     setCreateContactData({});
   };
 
@@ -26,6 +30,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
       <form
         onSubmit={(e: any) => {
           e.preventDefault();
+          handleDispatch();
         }}
       >
         <input
