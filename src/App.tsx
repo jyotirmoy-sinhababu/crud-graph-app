@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './assest/store/Store';
 
 import LandingPage from './pages/landingPage/LandingPage';
-import ContactComp from './components/contactComp/ContactComp';
+import ContactPage from './pages/contactPage/ContactPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <div className='App'>
         <Routes>
           <Route path='/' element={<LandingPage />}>
-            <Route path='contact' element={<ContactComp />} />
+            <Route path='contact' element={<ContactPage />} />
           </Route>
         </Routes>
       </div>
