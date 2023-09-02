@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../assest/slice/ContactSlice';
+
 interface ModalProps {
   closeModal: any;
 }
 
 const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   const [createContactData, setCreateContactData] = useState<object>();
+
+  const dispatch = useDispatch();
+
+  const handleDispatch = () => {
+    dispatch(addContact({ id: Date.now(), createContactData }));
+    setCreateContactData({});
+  };
+
   return (
     <div>
       <button type='button' onClick={closeModal}>
