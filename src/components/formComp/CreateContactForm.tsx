@@ -12,7 +12,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   const [createContactData, setCreateContactData] = useState<any>();
 
   const dispatch = useDispatch();
-  const contacts = useSelector((state: any) => state?.contact);
+  const contacts = useSelector((state: any) => state?.contact?.contacts);
 
   const handleDispatch = () => {
     const newContact = {
@@ -20,7 +20,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
       id: idGenerator(),
     };
     console.log(contacts);
-    dispatch(addContact([...contacts, newContact]));
+    dispatch(addContact(newContact));
     setCreateContactData({});
   };
 
