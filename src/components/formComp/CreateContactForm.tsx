@@ -9,24 +9,25 @@ interface ModalProps {
 }
 
 const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
-  const [createContactData, setCreateContactData] = useState<{}>();
+  const [createContactData, setCreateContactData] = useState<any>();
 
   const dispatch = useDispatch();
   const contacts = useSelector((state: any) => state?.contact);
-  console.log(contacts);
 
   const handleDispatch = () => {
     const newContact = {
       ...createContactData,
       id: idGenerator(),
     };
-    dispatch(addContact([...Array.from(contacts), newContact]));
+    console.log(contacts);
+    dispatch(addContact([...contacts, newContact]));
     setCreateContactData({});
   };
 
   const idGenerator = () => {
     return Math.floor(Math.random() * 100000) + 1;
   };
+  // console.log(contacts);
 
   return (
     <div>

@@ -13,8 +13,6 @@ const ContactComp = () => {
     }
   };
 
-  console.log(isOpen);
-
   const closeModal = () => {
     if (isOpen) {
       setIsOpen(false);

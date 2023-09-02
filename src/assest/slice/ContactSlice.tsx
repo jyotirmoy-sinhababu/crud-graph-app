@@ -1,5 +1,3 @@
-// src/features/todos/todosSlice.js
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Contact {
@@ -13,7 +11,7 @@ const ContactSlice = createSlice({
   initialState: { contacts: [] as Contact[] },
   reducers: {
     addContact: (state, action) => {
-      state.contacts.push(action.payload);
+      state.contacts = action.payload;
     },
     deleteContact: (state, action) => {
       state.contacts = state.contacts.filter(

@@ -13,6 +13,7 @@ function App() {
       <div className='App'>
         <Routes>
           <Route path='/' element={<LandingPage />}>
+            <Route index element={<ContactPage />} />
             <Route path='contact' element={<ContactPage />} />
           </Route>
         </Routes>

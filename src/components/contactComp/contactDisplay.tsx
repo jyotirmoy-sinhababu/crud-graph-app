@@ -8,21 +8,24 @@ interface item {
 
 const ContactDisplay = () => {
   const contacts = useSelector((state: any) => state?.contact);
+
+  console.log(contacts);
   return (
     <div>
-      {contacts ? (
-        contacts.map((item: item) => {
+      {contacts?.length == 0 ? (
+        contacts.map((item: any) => {
+          debugger;
           return (
             <div key={item.id}>
               <p>
                 <strong>Name:</strong>
-                {item.firstName + item.secondName}
+                {contacts.firstName}
               </p>
             </div>
           );
         })
       ) : (
-        <p>No data</p>
+        <p>hi</p>
       )}
     </div>
   );
