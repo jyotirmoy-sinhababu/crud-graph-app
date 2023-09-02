@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const EditContactForm = ({ closeModal }: any) => {
+const EditContactForm = ({ closeModal, item }: any) => {
   const [editedData, setEditedData] = useState<any>();
-
-  const contacts = useSelector((state: any) => state?.contact?.contacts);
 
   return (
     <div>
@@ -23,6 +21,7 @@ const EditContactForm = ({ closeModal }: any) => {
           type='text'
           required
           placeholder='First Name'
+          value={item.firstName}
         />
         <input
           onChange={(e) => {
@@ -32,10 +31,21 @@ const EditContactForm = ({ closeModal }: any) => {
           type='text'
           required
           placeholder=' Second Name'
+          value={item.secondName}
         />
-        <input onChange={(e) => {}} name='status' type='radio' value='on' />
+        <input
+          onChange={(e) => {}}
+          name='status'
+          type='radio'
+          value={item.status}
+        />
         <label>Active</label>
-        <input onChange={(e) => {}} name='status' type='radio' value='off' />
+        <input
+          onChange={(e) => {}}
+          name='status'
+          type='radio'
+          value={item.status}
+        />
         <label>Not active</label>
         <div>
           <button type='submit'>Save</button>

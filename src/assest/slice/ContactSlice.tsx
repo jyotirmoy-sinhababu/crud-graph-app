@@ -19,6 +19,7 @@ const ContactSlice = createSlice({
       });
       state.contacts = filteredState;
     },
+    editCount: () => {},
   },
 });
 

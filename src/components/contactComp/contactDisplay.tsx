@@ -70,18 +70,19 @@ const ContactDisplay = () => {
                   Delete
                 </button>
               </div>
+              <div>
+                <Modal isOpen={isEditOpen}>
+                  <EditContactForm item={item} closeModal={closeModal} />
+                </Modal>
+              </div>
             </div>
           );
         })
       ) : (
-        <p>hi</p>
+        <div>
+          <p>No data found</p>
+        </div>
       )}
-
-      <div>
-        <Modal isOpen={isEditOpen}>
-          <EditContactForm closeModal={closeModal} />
-        </Modal>
-      </div>
     </div>
   );
 };
