@@ -18,7 +18,9 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   console.log(contacts);
 
   const handleDispatch = () => {
-    dispatch(addContact({ id: Date.now(), ...createContactData }));
+    dispatch(
+      addContact({ ...contacts, ...{ id: Date.now(), ...createContactData } })
+    );
     setCreateContactData({});
   };
 
