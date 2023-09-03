@@ -69,7 +69,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
           name='secondName'
           type='text'
           required
-          placeholder=' Second Name'
+          placeholder=' Last Name'
         />
         <div className='flex items-center gap-4'>
           <div className='flex-items-center gap-1 '>
@@ -104,7 +104,9 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
           </div>
         </div>
         <div>
-          <button type='submit'>Submit</button>
+          <button className='' type='submit'>
+            Submit
+          </button>
         </div>
       </form>
     </div>

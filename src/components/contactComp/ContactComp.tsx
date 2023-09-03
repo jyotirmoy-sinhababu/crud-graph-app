@@ -22,13 +22,16 @@ const ContactComp = () => {
   return (
     <div>
       <div>
-        <p>Contact Page</p>
+        <div>
+          <p>Contact Page</p>
+        </div>
+        <div>
+          <button type='button' onClick={handleModal}>
+            Create Contacts <GrAdd />{' '}
+          </button>
+        </div>
       </div>
-      <div>
-        <button type='button' onClick={handleModal}>
-          Create Contacts <GrAdd />{' '}
-        </button>
-      </div>
+
       <div>
         <Modal isOpen={isOpen}>
           <CreateContactForm closeModal={closeModal} />
