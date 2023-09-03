@@ -19,15 +19,17 @@ const EditContactForm = ({ closeModal, item }: any) => {
   };
 
   return (
-    <div>
+    <div className='w-full max-w-[380px] p-4 relative border border-borderGrey mx-auto rounded-lg'>
       {' '}
       <form
+        className='flex flex-col gap-4 pb-3 pt-5 px-1 '
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
           handleEdit(item?.id);
         }}
       >
         <input
+          className='border border-borderGrey rounded h-10 pl-1'
           onChange={(e) => {
             setEditedData({ ...editedData, [e.target.name]: e.target.value });
           }}
@@ -38,6 +40,7 @@ const EditContactForm = ({ closeModal, item }: any) => {
           value={editedData.firstName}
         />
         <input
+          className='border border-borderGrey rounded h-10 pl-1'
           onChange={(e) => {
             setEditedData({ ...editedData, [e.target.name]: e.target.value });
           }}
@@ -48,6 +51,7 @@ const EditContactForm = ({ closeModal, item }: any) => {
           value={editedData.secondName}
         />
         <input
+          className='border border-borderGrey rounded h-4 '
           onChange={(e) => {
             setEditedData({ ...editedData, [e.target.name]: e.target.value });
           }}
@@ -57,6 +61,7 @@ const EditContactForm = ({ closeModal, item }: any) => {
         />
         <label>Active</label>
         <input
+          className='border border-borderGrey rounded h-4 '
           onChange={(e) => {
             setEditedData({ ...editedData, [e.target.name]: e.target.value });
           }}

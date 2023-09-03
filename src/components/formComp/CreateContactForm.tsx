@@ -30,22 +30,23 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   console.log(createContactData);
 
   return (
-    <div>
-      <button type='button' onClick={closeModal}>
-        <RxCross1 style={{ fontSize: '18px' }} />{' '}
+    <div className='w-full max-w-[380px] p-4 relative border border-borderGrey mx-auto rounded-lg'>
+      <button
+        className='text-xl bg-transparent border-none absolute top-2 right-2 '
+        type='button'
+        onClick={closeModal}
+      >
+        <RxCross1 />{' '}
       </button>
       <form
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-        }}
+        className='flex flex-col gap-4 pb-3 pt-5 px-1 '
         onSubmit={(e: any) => {
           e.preventDefault();
           handleDispatch();
         }}
       >
         <input
+          className='border border-borderGrey rounded h-10 pl-1'
           onChange={(e) => {
             setCreateContactData({
               ...createContactData,
@@ -58,6 +59,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
           placeholder='First Name'
         />
         <input
+          className='border border-borderGrey rounded h-10 pl-1'
           onChange={(e) => {
             setCreateContactData({
               ...createContactData,
@@ -69,30 +71,38 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
           required
           placeholder=' Second Name'
         />
-        <input
-          onChange={(e) => {
-            setCreateContactData({
-              ...createContactData,
-              [e.target.name]: e.target.value,
-            });
-          }}
-          name='status'
-          type='radio'
-          value='on'
-        />
-        <label>Active</label>
-        <input
-          onChange={(e) => {
-            setCreateContactData({
-              ...createContactData,
-              [e.target.name]: e.target.value,
-            });
-          }}
-          name='status'
-          type='radio'
-          value='off'
-        />
-        <label>Not active</label>
+        <div className='flex items-center gap-4'>
+          <div className='flex-items-center gap-1 '>
+            <input
+              className='border border-borderGrey rounded h-4 '
+              onChange={(e) => {
+                setCreateContactData({
+                  ...createContactData,
+                  [e.target.name]: e.target.value,
+                });
+              }}
+              name='status'
+              type='radio'
+              value='on'
+            />
+            <label>Active</label>
+          </div>
+          <div className='flex items-center gap-1'>
+            <input
+              className='border border-borderGrey rounded h-4 '
+              onChange={(e) => {
+                setCreateContactData({
+                  ...createContactData,
+                  [e.target.name]: e.target.value,
+                });
+              }}
+              name='status'
+              type='radio'
+              value='off'
+            />
+            <label>Not active</label>
+          </div>
+        </div>
         <div>
           <button type='submit'>Submit</button>
         </div>
