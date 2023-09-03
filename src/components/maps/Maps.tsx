@@ -3,7 +3,8 @@ import { useQuery } from 'react-query';
 import L, { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
-import { log } from 'console';
+
+import loc from '../../assest/images/loc.svg';
 
 const Maps = () => {
   const getFacts = async () => {
@@ -15,10 +16,10 @@ const Maps = () => {
 
   // Default coordinates set to Oslo central station
   const position: LatLngExpression = [0, 0];
-  const zoom: number = 2;
+  const zoom: number = 4.5;
 
   const icon: L.DivIcon = L.divIcon({
-    className: 'hot-chocolate-icon',
+    iconUrl: loc,
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15, 0],
@@ -26,10 +27,10 @@ const Maps = () => {
 
   return (
     <MapContainer
-      style={{ width: '100%', height: '600px' }}
+      style={{ width: '100%', height: '400px' }}
       center={position}
       zoom={zoom}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
     >
       <TileLayer
         attribution="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
