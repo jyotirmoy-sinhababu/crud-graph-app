@@ -4,7 +4,7 @@ const SideBar = () => {
   return (
     <div>
       <NavLink to={'/contact'}>Contacts</NavLink>
-      <NavLink to={{}}>Charts and Maps</NavLink>
+      <NavLink to={'/charts'}>Charts and Maps</NavLink>
     </div>
   );
 };
