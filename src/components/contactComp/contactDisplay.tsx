@@ -79,8 +79,8 @@ const ContactDisplay = () => {
           );
         })
       ) : (
-        <div>
-          <p>No data found</p>
+        <div className='flex justify-center items-center mt-24 w-full max-w-[580px]  min-h-[380px] p-4 relative border border-borderGrey mx-auto rounded-lg'>
+          <p className='text-4xl font-semibold text-grey-600'>No data found</p>
         </div>
       )}
     </div>
