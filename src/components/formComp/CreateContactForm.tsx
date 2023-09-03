@@ -32,9 +32,14 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   return (
     <div>
       <button type='button' onClick={closeModal}>
-        <RxCross1 />{' '}
+        <RxCross1 style={{ fontSize: '18px' }} />{' '}
       </button>
       <form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        }}
         onSubmit={(e: any) => {
           e.preventDefault();
           handleDispatch();
