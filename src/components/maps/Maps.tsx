@@ -27,7 +27,7 @@ const Maps = () => {
 
   return (
     <MapContainer
-      style={{ width: '100%', height: '400px' }}
+      style={{ width: '60%', height: '500px' }}
       center={position}
       zoom={zoom}
       scrollWheelZoom={true}
