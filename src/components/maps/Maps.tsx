@@ -37,8 +37,6 @@ const Maps = () => {
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
       {data?.map((item: any) => {
-        console.log(item);
-
         return (
           <Marker
             key={item?.countryInfo?.id}
