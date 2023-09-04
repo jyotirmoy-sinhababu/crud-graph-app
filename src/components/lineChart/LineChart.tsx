@@ -85,7 +85,7 @@ const LineChart = () => {
   };
 
   return (
-    <div>
+    <div className='lg:w-1/2 w-full'>
       {Object.keys(covidData)?.length > 0 && (
         <Line options={options} data={chartData} />
       )}

@@ -19,7 +19,7 @@ const EditContactForm = ({ closeModal, item }: any) => {
   };
 
   return (
-    <div className='w-full max-w-[380px] p-4 relative border border-borderGrey mx-auto rounded-lg'>
+    <div className='w-full max-w-[380px] p-4 relative border bg-white border-borderGrey mx-auto rounded-lg'>
       {' '}
       <form
         className='flex flex-col gap-4 pb-3 pt-5 px-1 '
@@ -50,29 +50,46 @@ const EditContactForm = ({ closeModal, item }: any) => {
           placeholder=' Second Name'
           value={editedData.secondName}
         />
-        <input
-          className='border border-borderGrey rounded h-4 '
-          onChange={(e) => {
-            setEditedData({ ...editedData, [e.target.name]: e.target.value });
-          }}
-          name='status'
-          type='radio'
-          value={editedData.status}
-        />
-        <label>Active</label>
-        <input
-          className='border border-borderGrey rounded h-4 '
-          onChange={(e) => {
-            setEditedData({ ...editedData, [e.target.name]: e.target.value });
-          }}
-          name='status'
-          type='radio'
-          value={editedData.status}
-        />
-        <label>Not active</label>
-        <div>
-          <button type='submit'>Save</button>
-          <button type='button' onClick={closeModal}>
+
+        <div className='flex items-center gap-1'>
+          {' '}
+          <input
+            className='border border-borderGrey rounded h-4 '
+            onChange={(e) => {
+              setEditedData({ ...editedData, [e.target.name]: e.target.value });
+            }}
+            name='status'
+            type='radio'
+            value={editedData.status}
+          />
+          <label>Active</label>
+        </div>
+        <div className='flex items-center gap-1'>
+          {' '}
+          <input
+            className='border border-borderGrey rounded h-4 '
+            onChange={(e) => {
+              setEditedData({ ...editedData, [e.target.name]: e.target.value });
+            }}
+            name='status'
+            type='radio'
+            value={editedData.status}
+          />
+          <label>Not active</label>
+        </div>
+
+        <div className='flex'>
+          <button
+            className='ml-auto text-sky-900 font-bold mt-4 block'
+            type='submit'
+          >
+            Save
+          </button>
+          <button
+            className='ml-auto text-sky-900 font-bold mt-4 block'
+            type='button'
+            onClick={closeModal}
+          >
             Cancel
           </button>
         </div>

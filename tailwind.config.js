@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         borderGrey: '#dbdbdb',
+        blackSeventy: 'rgba(0,0,0,0.7)',
       },
     },
   },

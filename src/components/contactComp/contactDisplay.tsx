@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../assest/slice/ContactSlice';
 import Modal from '../../modal/Modal';
 import EditContactForm from '../formComp/EditContactForm';
-
+import { CiEdit } from 'react-icons/ci';
+import { MdDeleteOutline } from 'react-icons/md';
 interface item {
   id: number;
   firstName: string;
@@ -37,39 +38,51 @@ const ContactDisplay = () => {
   };
 
   return (
-    <div>
+    <div className='lg:p-20 p-10'>
       {contacts?.length !== 0 ? (
         contacts?.map((item: any) => {
           return (
-            <div key={item.id}>
-              <div>
-                <p>
-                  <strong>Name:</strong>
-                  {item?.firstName} {item?.secondName}
-                </p>
-                <p>
-                  <strong>Statue:</strong>
-                  {item?.status == 'on' ? 'active' : 'not-active'}
-                </p>
+            <div
+              className='shadow  h-fit p-3 rounded border-borderGrey flex flex-col gap-3 w-[215px]'
+              key={item.id}
+            >
+              <div className='flex justify-between items-center'>
+                <div
+                  className={`${
+                    item?.status == 'on' ? 'bg-green-500' : 'bg-borderGrey'
+                  } w-3 h-3 rounded-full  `}
+                ></div>
+                <div className='flex justify-end items-center gap-1 px-2 '>
+                  <button
+                    type='button'
+                    onClick={() => {
+                      handleModal();
+                    }}
+                  >
+                    <CiEdit className='text-lg text-sky' />
+                  </button>
+                  <button
+                    type='button'
+                    onClick={(id) => {
+                      controlDelete(item.id);
+                    }}
+                  >
+                    <MdDeleteOutline className='text-xl text-rose-500' />
+                  </button>
+                </div>
               </div>
               <div>
-                <button
-                  type='button'
-                  onClick={() => {
-                    handleModal();
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  type='button'
-                  onClick={(id) => {
-                    controlDelete(item.id);
-                  }}
-                >
-                  Delete
-                </button>
+                <p className='font-bold'>
+                  <strong className='text-blackSeventy font-medium'>
+                    Name:
+                  </strong>
+                  <span className='capitalize'>
+                    {' '}
+                    {item?.firstName} {item?.secondName}
+                  </span>
+                </p>
               </div>
+
               <div>
                 <Modal isOpen={isEditOpen}>
                   <EditContactForm item={item} closeModal={closeModal} />

@@ -3,7 +3,7 @@ import ContactDisplay from '../../components/contactComp/ContactDisplay';
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className=''>
       <ContactComp />
       <ContactDisplay />
     </div>

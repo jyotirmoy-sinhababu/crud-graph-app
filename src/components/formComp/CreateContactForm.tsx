@@ -30,7 +30,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
   console.log(createContactData);
 
   return (
-    <div className='w-full max-w-[380px] p-4 relative border border-borderGrey mx-auto rounded-lg'>
+    <div className='w-full max-w-[380px] p-4 relative border bg-white border-borderGrey mx-auto rounded-lg'>
       <button
         className='text-xl bg-transparent border-none absolute top-2 right-2 '
         type='button'
@@ -43,6 +43,7 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
         onSubmit={(e: any) => {
           e.preventDefault();
           handleDispatch();
+          closeModal();
         }}
       >
         <input
@@ -104,7 +105,10 @@ const CreateContactForm: React.FC<ModalProps> = ({ closeModal }) => {
           </div>
         </div>
         <div>
-          <button className='' type='submit'>
+          <button
+            className='ml-auto text-sky-900 font-bold mt-4 block'
+            type='submit'
+          >
             Submit
           </button>
         </div>

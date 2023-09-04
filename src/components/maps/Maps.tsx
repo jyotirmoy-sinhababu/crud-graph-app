@@ -27,7 +27,10 @@ const Maps = () => {
 
   return (
     <MapContainer
-      style={{ width: '60%', height: '500px' }}
+      style={{
+        width: window?.innerWidth > 600 ? '50%' : '100%',
+        height: '500px',
+      }}
       center={position}
       zoom={zoom}
       scrollWheelZoom={true}
@@ -36,10 +39,10 @@ const Maps = () => {
         attribution="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
-      {data?.map((item: any) => {
+      {data?.map((item: any, i: number) => {
         return (
           <Marker
-            key={item?.countryInfo?.id}
+            key={`${item?.countryInfo?.id}-${i} `}
             position={[item?.countryInfo?.long, item?.countryInfo?.lat]}
             icon={icon}
           >

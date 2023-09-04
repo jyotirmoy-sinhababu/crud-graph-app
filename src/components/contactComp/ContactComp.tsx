@@ -21,17 +21,20 @@ const ContactComp = () => {
 
   return (
     <div className='pt-6'>
-      <div className='flex justify-between pe-20 px-20'>
+      <div className='flex justify-between lg:pe-20 lg:px-20 px-8'>
         <div>
-          <p className='text-xl font-semibold text-grey-600'>Contact Page</p>
+          <p className='lg:text-xl text-base font-semibold text-grey-600'>
+            Contact Page
+          </p>
         </div>
         <div>
           <button
-            className='flex justify-around items-center gap-4 text-xl font-semibold '
+            className='flex justify-around items-center gap-4 lg:text-xl text-base font-semibold '
             type='button'
             onClick={handleModal}
           >
-            Create Contacts <GrAdd />{' '}
+            <span className='lg:inline-block hidden'> Create Contacts </span>{' '}
+            <GrAdd className='lg:text-lg text-xl' />{' '}
           </button>
         </div>
       </div>
